@@ -1,16 +1,134 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
+@import 'compass/css3';
 @import 'sass-bootstrap/lib/bootstrap';
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+/*
+==============================================
+slideUp
+==============================================
+*/
+.slideUp{
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;  
+
+  animation-duration: 1s; 
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;
+
+  visibility: visible !important;     
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  50%{
+    transform: translateY(-8%);
+  }
+  65%{
+    transform: translateY(4%);
+  }
+  80%{
+    transform: translateY(-4%);
+  }
+  95%{
+    transform: translateY(2%);
+  }     
+  100% {
+    transform: translateY(0%);
+  } 
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+  }
+  50%{
+    -webkit-transform: translateY(-8%);
+  }
+  65%{
+    -webkit-transform: translateY(4%);
+  }
+  80%{
+    -webkit-transform: translateY(-4%);
+  }
+  95%{
+    -webkit-transform: translateY(2%);
+  }     
+  100% {
+    -webkit-transform: translateY(0%);
+  } 
+}
+
+$primaryColor: #850116;
+$secondaryColor: #D20222;
+$tertiaryColor: #C50220;
+
+.jumbotron {
+  background-color: $primaryColor;
+  background-image: linear-gradient(30deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
+  linear-gradient(150deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
+  linear-gradient(30deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
+  linear-gradient(150deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
+  linear-gradient(60deg, $tertiaryColor 25%, transparent 25.5%, transparent 75%, $tertiaryColor 75%, $tertiaryColor), 
+  linear-gradient(60deg, $tertiaryColor 25%, transparent 25.5%, transparent 75%, $tertiaryColor 75%, $tertiaryColor);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  background-attachment: fixed;
+  padding: 50px 0 50px 0;
+  margin-bottom: 40px;
+
+  h1 {
+    @include text-shadow(rgba(255, 255, 255, 0.7) 1px 1px 10px);
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: lighter;
+    font-size: 50px;
+  }
+
+  #box {
+    @include box-shadow(lighten($secondaryColor, 10%) 0px 0px 5px);
+    border: 1px solid $secondaryColor;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+
+  input {
+    @include box-shadow(lighten($secondaryColor, 10%) 0px 0px 5px);
+    border: 1px solid $secondaryColor;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+  }
+
+  #time-left {
+    @include text-shadow(rgba(0, 0, 0, 0.5) 1px 1px 2px);
+    min-height: 30px;
+    display: block;
+    padding-top: 5px;
+    color: white;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  padding: 20px;
 }
