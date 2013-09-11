@@ -20,15 +20,32 @@
     <body>
         <div class="row-fluid jumbotron">
             <div class="container">
-                <div class="span8 offset2">
-                    <h1 class="slideUp">PubNub Access Manager</h1>
+                <div class="row">
+                    <div class="span8 offset2">
+                        <h1 class="slideUp">PubNub Access Manager</h1>
+                    </div>
                 </div>
-                <div class="span6 offset3">
-                    <div id="box"></div>
-                    <input id="input" type="text" placeholder="Type message here and hit enter!" />
-                    <input type="button" id="login" class="btn btn-large slideUp" value="Login">
-                    <input type="button" id="logout" class="btn btn-large hidden" value="Logout">
-                    <div id="time-left"></div>
+                <div class="row-fluid">
+                    <div class="span6 offset3">
+                        <div id="box"></div>
+                        <input id="input" type="text" placeholder="Type your message and press Enter" />
+                        <input type="button" id="login" class="btn btn-large slideUp" value="Login">
+                        <input type="button" id="logout" class="btn btn-large hidden" value="Logout">
+                        <div id="time-left"></div>
+                    </div>
+                    <div class="span3 share">
+                        <p>Like this demo? Share it!</p>
+                        <span class='st_facebook_hcount' displayText='Facebook'></span>
+                        <br />
+                        <br />
+                        <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        <br />
+                        <br />
+                        <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+                        <br />
+                        <br />
+                        <span class='st_plusone_hcount' displayText='Google +1'></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,7 +53,7 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span8 offset2">
-                    <h3>What is Access Manager?</h3>
+                    <h3>Secure Your Real-Time Apps</h3>
                     <p>The fundamental operations related to Access Manager are granting and revoking access to keys and channels. In our chat example we will want to control who can join the chat room (subscribe) as well as be able to contribute to the chat (publish).</p>
                 </div>
             </div>
@@ -77,7 +94,7 @@
                   <h3 class="call-to-action">Start Building Real-Time Apps Now!</h3>
                 </div>
                 <div class="span2">
-                  <a href="http://pubnub.com/free-trial" class="btn btn-large" id="get-started">Get Started</a>
+                  <a href="http://pubnub.com/free-trial" class="btn btn-large btn-danger" id="get-started">Get Started</a>
                 </div>
               </div>
             </div>
@@ -129,5 +146,8 @@
         <script src="bower_components/sass-bootstrap/js/bootstrap-collapse.js"></script>
         <script src="bower_components/sass-bootstrap/js/bootstrap-tab.js"></script>
         <!-- endbuild -->
+
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "ur-bcb7f308-1037-8c18-a101-24f98b6780c", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </body>
 </html>

@@ -30,7 +30,7 @@ PUBNUB.bind 'keyup', input, (e) ->
       x: (input.value = '')
       error: (message) ->
         if message.status is 403
-          addMessage "--- Please press Login to access chat"
+          addMessage "[Access Denied] Please press Login to access chat"
 
 addClass = (el, name) ->
   el.className += "#{name}"
@@ -43,6 +43,26 @@ pubnub.publish
   message: JSON.stringify
     uuid: authKey
     action: 'presence'
+
+doLogin = (e) ->
+  login.disabled = true
+  login.value = "Logging In..."
+  logout.value = "Logout"
+  pubnub.publish
+    channel: 'authentication'
+    message: JSON.stringify
+      action: 'login'
+      authKey: authKey
+
+doLogout = (e) ->
+  logout.disabled = true
+  logout.value = "Logging Out..."
+  login.value = "Login"
+  pubnub.publish
+    channel: 'authentication'
+    message: JSON.stringify
+      action: 'logout'
+      authKey: authKey
 
 pubnub.subscribe
   channel: authKey
@@ -63,11 +83,7 @@ pubnub.subscribe
           time--
           timeLeft.innerHTML = "You have #{time} seconds left..."
           if time is 0
-            pubnub.publish
-              channel: 'authentication'
-              message: JSON.stringify
-                action: 'logout'
-                authKey: authKey
+            doLogout({})
             clearInterval interval
         interval = setInterval count, 1000
       else
@@ -90,20 +106,5 @@ pubnub.subscribe
           logout.value = "Login"
         setTimeout reset, 3000
   connect: (event) ->
-    PUBNUB.bind 'click', login, (e) ->
-      login.disabled = true
-      login.value = "Logging In..."
-      pubnub.publish
-        channel: 'authentication'
-        message: JSON.stringify
-          action: 'login'
-          authKey: authKey
-
-    PUBNUB.bind 'click', logout, (e) ->
-      logout.disabled = true
-      logout.value = "Logging Out..."
-      pubnub.publish
-        channel: 'authentication'
-        message: JSON.stringify
-          action: 'logout'
-          authKey: authKey
+    PUBNUB.bind 'click', login, doLogin
+    PUBNUB.bind 'click', logout, doLogout
