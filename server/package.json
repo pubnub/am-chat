@@ -1,15 +1,20 @@
 {
   "name": "am-chat",
-  "version": "0.0.0",
-  "description": "ERROR: No README.md file found!",
+  "version": "1.0.0-1",
+  "description": "A demo of access manager chat.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": "",
-  "author": "",
-  "license": "BSD",
+  "author": "PubNub",
+  "license": "MIT",
   "dependencies": {
-    "pubnub": "~3.5.3"
+    "pubnub": "~3.5.3",
+    "nconf": "~0.6.7"
+  },
+  "subdomain": "danr-pubnub-am-chat",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
