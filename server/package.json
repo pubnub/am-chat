@@ -1,6 +1,6 @@
 {
   "name": "am-chat",
-  "version": "1.0.0-1",
+  "version": "1.0.0-5",
   "description": "A demo of access manager chat.",
   "main": "index.js",
   "repository": "",

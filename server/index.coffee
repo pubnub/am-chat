@@ -2,7 +2,7 @@ nconf = require 'nconf'
 
 nconf.argv()
      .env()
-     .file({ file: 'config.json' })
+     .file({ file: './config.json' })
 
 authKey = nconf.get("secret_key")
 pubnub = require('./pubnub').init
@@ -106,3 +106,11 @@ pubnub.subscribe
         auth_key: authKey
         callback: () ->
           # Nothing
+
+# For cloud deploying
+http = require 'http'
+app = http.createServer (req, res) ->
+  res.writeHead 200, { 'Content-Type': 'text/html' }
+  res.end 'Okay'
+app.listen process.env.PORT ? 5000
+
