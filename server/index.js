@@ -4,16 +4,14 @@
 
   nconf = require('nconf');
 
-  nconf.argv().env().file({
-    file: './config.json'
-  });
+  nconf.argv().env();
 
-  authKey = nconf.get("secret_key");
+  authKey = nconf.get("SECRET_KEY");
 
   pubnub = require('./pubnub').init({
     subscribe_key: 'sub-c-4c15a542-ced1-11e2-b70f-02ee2ddab7fe',
     publish_key: 'pub-c-4268517d-1e7a-4bdd-8037-090a3c76a1f0',
-    secret_key: nconf.get("secret_key"),
+    secret_key: nconf.get("SECRET_KEY"),
     auth_key: authKey,
     origin: 'pam-beta.pubnub.com'
   });
