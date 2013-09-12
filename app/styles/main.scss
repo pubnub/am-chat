@@ -1,8 +1,11 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+$FontAwesomePath: "../bower_components/font-awesome/font";
+$baseFontFamily: "FontAwesome";
 
 @import 'compass/css3';
 @import 'sass-bootstrap/lib/bootstrap';
+@import "font-awesome/scss/font-awesome";
 
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -14,7 +17,9 @@ code {
 }
 
 pre.prettyprint {
-  border: 1px solid #CCC;
+  @include border-radius(0px);
+  border: none;
+  border-left: 5px solid #CCC;
   padding-top: 8px;
   padding-bottom: 8px;
 
@@ -94,6 +99,7 @@ $secondaryColor: #D20222;
 $tertiaryColor: #C50220;
 
 .jumbotron {
+  @include box-shadow(inset rgba(0, 0, 0, 0.5) 0px -3px 7px);
   background-color: $primaryColor;
   background-image: linear-gradient(30deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
   linear-gradient(150deg, $secondaryColor 12%, transparent 12.5%, transparent 87%, $secondaryColor 87.5%, $secondaryColor),
@@ -108,15 +114,19 @@ $tertiaryColor: #C50220;
   margin-bottom: 40px;
 
   h1, h4 {
-    @include text-shadow(rgba(255, 255, 255, 0.7) 1px 1px 10px);
+    font-family: 'Gudea', Helvetica, sans-serif;
+    @include text-shadow(rgba(255, 255, 255, 0.7) 1px 1px 10px, rgba(0, 0, 0, 0.5) 1px 1px 3px);
     color: white;
     text-align: center;
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 50px;
+    margin-bottom: 18px;
   }
 
   h4 {
-    font-size: 24px;
+    font-family: 'Raleway', Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 28px;
     margin-bottom: 50px;
   }
 
@@ -153,6 +163,23 @@ $tertiaryColor: #C50220;
     @include text-shadow(rgba(0, 0, 0, 0.5) 1px 1px 2px);
     color: white;
   }
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+a {
+  color: $tertiaryColor;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Gudea', Helvetica, sans-serif;
 }
 
 #get-started {

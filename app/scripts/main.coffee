@@ -29,7 +29,7 @@ PUBNUB.bind 'keyup', input, (e) ->
       message: input.value
       x: (input.value = '')
       error: (message) ->
-        if message.status is 403
+        if message and message.status is 403
           addMessage "[Access Denied] Please press Login to access chat"
 
 addClass = (el, name) ->
