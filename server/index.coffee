@@ -11,32 +11,37 @@ pubnub = require('./pubnub').init
   auth_key: authKey
   origin: 'pam-beta.pubnub.com'
 
-console.log "Granting read-only access to chat channel"
-pubnub.grant
-  channel: 'chat'
-  read: true
-  write: false
-  callback: (message) ->
-    console.log "Successfully made grant request", message
-  error: (message) ->
-    console.log "[ERROR] On grant request", message
+grantServerAccess = () ->
+  console.log "Granting read-only access to chat channel"
+  pubnub.grant
+    channel: 'chat'
+    read: true
+    write: false
+    callback: (message) ->
+      console.log "Successfully made grant request", message
+    error: (message) ->
+      console.log "[ERROR] On grant request", message
 
-console.log "Granting access for authentication channel"
-pubnub.grant
-  channel: 'authentication'
-  read: false
-  write: true
-  callback: (message) ->
-    # Nothing
+  console.log "Granting access for authentication channel"
+  pubnub.grant
+    channel: 'authentication'
+    read: false
+    write: true
+    callback: (message) ->
+      # Nothing
 
-console.log "Granting access for self on auth"
-pubnub.grant
-  channel: 'authentication'
-  auth_key: authKey
-  read: true
-  write: true
-  callback: (message) ->
-    # Nothing
+  console.log "Granting access for self on auth"
+  pubnub.grant
+    channel: 'authentication'
+    auth_key: authKey
+    read: true
+    write: true
+    callback: (message) ->
+      # Nothing
+
+  # Do this every 18 hours to prevent losing access (ms, * s * min * hour)
+  setTimeout grantServerAccess, 1000 * 60 * 60 * 18
+grantServerAccess()
 
 console.log "Listening for logins and logouts"
 pubnub.subscribe
@@ -96,6 +101,7 @@ pubnub.subscribe
         read: true
         write: false
         auth_key: message.uuid
+        ttl: 60 * 24 * 3 # 3 days (min * hour * day)
         callback: () ->
           # Nothing
       pubnub.grant
@@ -103,6 +109,7 @@ pubnub.subscribe
         read: false
         write: true
         auth_key: authKey
+        ttl: 60 * 24 * 3 # 3 days (min * hour * day)
         callback: () ->
           # Nothing
 
