@@ -36,8 +36,8 @@ pubnub.grant({
 });
 ```
 
->**NOTE:** The `auth_key` can be anything, we recommend you make it
-long and unpredictable.  
+>**NOTE:** The `auth_key` can be anything and we recommend you make it
+long and unpredictable. 
 Something like: `aXMgZm9ybS4NClR5cGUgKG9yIGNvcHk`
 
 
@@ -52,7 +52,6 @@ var pubnub = PUBNUB.init({
 });
 ```
 
-
 ### Grant Channel Level Permission
 You simply exclude the `auth_key` paramater and this will 
 globally grant access to all users.
@@ -64,6 +63,8 @@ pubnub.grant({
     ttl      : 60 // Minutes
 });
 ```
+
+>**NOTE:** You can grant access **FOREVER** by setting the `ttl` param to `0`.
 
 ### Revoke User Level Permission with Auth Key
 Revoke access to an `auth_key`.
