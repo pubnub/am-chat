@@ -56,6 +56,8 @@ var pubnub = PUBNUB.init({
 });
 ```
 
+>**CoffeeScript Sample App Line Number:** https://github.com/pubnub/am-chat/blob/b83f9f198c6bcfe8f812422e66c6cf36839a8c5d/app/scripts/main.coffee#L10
+
 
 ### Grant Channel Level Permission
 You simply exclude the `auth_key` paramater and this will 
