@@ -36,14 +36,12 @@ pubnub.grant({
 });
 ```
 
-
 ### Grant Channel Level Permission
 You simply exclude the `auth_key` paramater and this will 
 globally grant access to any user.
 ```javascript
 pubnub.grant({
     channel  : 'privateChat',
-    auth_key : 'abxyz12-auth-key-987tuv',
     read     : true,
     write    : true,
     ttl      : 60 // Minutes
