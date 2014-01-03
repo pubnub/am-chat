@@ -4,13 +4,13 @@ PubNub Access Manager (PAM) extends PubNub’s existing security framework by pr
 
 ## Where do I Start?
 
-Getting started guide for PubNub Access Manager. The tutorial provides a walk-through of the API, how it works, including sample code for JavaScript SDK.  Here are a list of resources for you to get started:
+Getting started guide for PubNub Access Manager: The tutorial links below provides you with a walk-through of the API and how it works including sample code for JavaScript SDK.  Here are a list of resources for you to get started:
 
  - [PubNub Access Manager Getting Started Guide JavaScript SDK](http://www.pubnub.com/docs/javascript/tutorial/access-manager.html)
  - [PubNub Security Overview JavaScript SDK](http://www.pubnub.com/docs/javascript/overview/security.html)
+ - [PubNub Access Manager Example Demo](http://pubnub.github.io/am-chat/)
 
 ## Secure Your Real-Time Apps
-
 The fundamental operations related to Access Manager are granting and revoking access to keys and channels. In our chat example we will want to control who can join the chat room (subscribe) as well as be able to contribute to the chat (publish).
 
 
