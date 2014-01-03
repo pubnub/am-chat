@@ -1,8 +1,10 @@
 # PubNub Access Manager
 
+PubNub Access Manager (PAM) extends PubNub’s existing security framework by providing a mechanism for application developers to create and enforce secure channels throughout the PubNub Real Time Network. PAM provides the ability to enforce security at three different levels and in any combination of the three: Application (TOP), Channel (Stream), Individual User by User.
+
 ## Where do I Start?
 
-Here are a list of resources for you to get started:
+Getting started guide for PubNub Access Manager. The tutorial provides a walk-through of the API, how it works, including sample code for JavaScript SDK.  Here are a list of resources for you to get started:
 
  - [PubNub Access Manager Getting Started Guide JavaScript SDK](http://www.pubnub.com/docs/javascript/tutorial/access-manager.html)
  - [PubNub Security Overview JavaScript SDK](http://www.pubnub.com/docs/javascript/overview/security.html)
