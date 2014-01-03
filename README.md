@@ -38,13 +38,31 @@ pubnub.grant({
 
 ### Grant Channel Level Permission
 You simply exclude the `auth_key` paramater and this will 
-globally grant access to any user.
+globally grant access to all users.
 ```javascript
 pubnub.grant({
     channel  : 'privateChat',
     read     : true,
     write    : true,
     ttl      : 60 // Minutes
+});
+```
+
+### Revoke User Level Permission with Auth Key
+Revoke access to an `auth_key`.
+```javascript
+pubnub.revoke({
+    channel  : 'privateChat',
+    auth_key : 'abxyz12-auth-key-987tuv'
+});
+```
+
+### Revoke Channel Level Permission
+You simply exclude the `auth_key` paramater and this will 
+globally revoke access to all users.
+```javascript
+pubnub.grant({
+    channel : 'privateChat'
 });
 ```
 
