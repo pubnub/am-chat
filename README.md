@@ -10,6 +10,46 @@ Getting started guide for PubNub Access Manager: The tutorial links below provid
  - [PubNub Security Overview JavaScript SDK](http://www.pubnub.com/docs/javascript/overview/security.html)
  - [PubNub Access Manager Example Demo](http://pubnub.github.io/am-chat/)
 
+Because the PubNub Access Manager is super simple, you'll want to see how it works by reading the code:
+
+### PubNub Admin Mode with SECRET_KEY
+Create an instance of PubNub with Admin Granting 
+Capabilities by including the `secret_key`.
+```javascript
+var pubnub = PUBNUB.init({
+    subscribe_key : 'my_subkey',
+    publish_key   : 'my_pubkey',
+    secret_key    : 'my_secretkey'
+});
+```
+
+### Grant User Level Permission with Auth Key
+Grant access to an `auth_key` which can be passed to a 
+single user or group of users.
+```javascript
+pubnub.grant({
+    channel  : 'privateChat',
+    auth_key : 'abxyz12-auth-key-987tuv',
+    read     : true,
+    write    : true,
+    ttl      : 60 // Minutes
+});
+```
+
+
+### Grant Channel Level Permission
+You simply exclude the `auth_key` paramater and this will 
+globally grant access to any user.
+```javascript
+pubnub.grant({
+    channel  : 'privateChat',
+    auth_key : 'abxyz12-auth-key-987tuv',
+    read     : true,
+    write    : true,
+    ttl      : 60 // Minutes
+});
+```
+
 ## Secure Your Real-Time Apps
 The fundamental operations related to Access Manager are granting and revoking access to keys and channels. In our chat example we will want to control who can join the chat room (subscribe) as well as be able to contribute to the chat (publish).
 
