@@ -23,7 +23,7 @@ var pubnub = PUBNUB.init({
 });
 ```
 
->**Sample App Line Number:** https://github.com/pubnub/am-chat/blob/b83f9f198c6bcfe8f812422e66c6cf36839a8c5d/server/index.coffee#L7
+>**CoffeeScript Sample App Line Number:** https://github.com/pubnub/am-chat/blob/b83f9f198c6bcfe8f812422e66c6cf36839a8c5d/server/index.coffee#L7
 
 ### Grant User Level Permission with Auth Key
 Grant access to an `auth_key` which can be passed to a 
@@ -37,7 +37,8 @@ pubnub.grant({
     ttl      : 60 // Minutes
 });
 ```
->**Sample App Line Number:** https://github.com/pubnub/am-chat/blob/b83f9f198c6bcfe8f812422e66c6cf36839a8c5d/server/index.coffee#L16
+>**CoffeeScript Sample App Line Number:** https://github.com/pubnub/am-chat/blob/b83f9f198c6bcfe8f812422e66c6cf36839a8c5d/server/index.coffee#L16
+
 
 >**NOTE:** The `auth_key` can be anything and we recommend you make it
 long and unpredictable. 
